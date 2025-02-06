@@ -1,4 +1,4 @@
-CREATE TABLE `companies` (
+CREATE TABLE IF NOT EXISTS `companies` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `adhesion_date` datetime(6) NOT NULL,
   `business_name` varchar(255) NOT NULL,
@@ -7,7 +7,7 @@ CREATE TABLE `companies` (
   UNIQUE KEY `UKsvsf1h2stvn0wtju1w9vq93qr` (`cuit`)
 ) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE `transfers` (
+CREATE TABLE IF NOT EXISTS `transfers` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `amount` decimal(38,2) NOT NULL,
   `company_id` bigint(20) NOT NULL,

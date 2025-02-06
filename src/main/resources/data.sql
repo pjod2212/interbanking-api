@@ -1,4 +1,4 @@
-INSERT INTO companies (cuit, business_name, adhesion_date) VALUES
+INSERT IGNORE INTO companies (cuit, business_name, adhesion_date) VALUES
 ('20-12345678-1', 'Empresa Uno', '2024-12-10 10:30:00'),
 ('20-87654321-2', 'Empresa Dos', '2024-12-15 15:45:00'),
 ('27-23456789-3', 'Empresa Tres', '2024-12-20 08:20:00'),
@@ -12,7 +12,7 @@ INSERT INTO companies (cuit, business_name, adhesion_date) VALUES
 ('35-89012345-9', 'Empresa Nueve', '2025-02-21 16:40:00'),
 ('35-90123456-0', 'Empresa Diez', '2025-02-28 19:55:00');
 
-INSERT INTO transfers (amount, company_id, debit_account, credit_account, date) VALUES
+INSERT IGNORE INTO transfers (amount, company_id, debit_account, credit_account, date) VALUES
 (15000.50, 1, '123-456789-01', '987-654321-09', '2024-12-02 09:15:00'),
 (3200.75, 2, '111-222333-04', '444-555666-07', '2024-12-05 11:30:00'),
 (50000.00, 3, '222-333444-05', '555-666777-08', '2024-12-08 15:45:00'),
