@@ -35,3 +35,6 @@ Clona el repositorio:
 ```sh
 git clone https://github.com/pjod2212/interbanking-api.git
 cd interbanking-api
+
+---
+**Desarrollado por [Pablo Donati](https://github.com/pjod2212)**
