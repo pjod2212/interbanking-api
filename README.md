@@ -25,7 +25,7 @@ O utilizar intellijIdea
 | Método | Endpoint | Descripción |
 |--------|---------|------------|
 | `POST` | `/api/companies` | Crea compañias |
-| `POST` | `/api/companies/adhered-last-month` | Trae las compañias adheridas el último mes |
+| `GET` | `/api/companies/adhered-last-month` | Trae las compañias adheridas el último mes |
 | `GET` | `/api/companies/with-transfers-last-month` | Trae las compañias que realizaron una transferncia el último mes |
 
 ## 🚀 Instalación y ejecución
