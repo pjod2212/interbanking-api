@@ -1,6 +1,6 @@
-package com.interbanking.api.infrastructure.persistence.entities;
+package com.interbanking.api.model.entity;
 
-import com.interbanking.api.domain.model.Company;
+import com.interbanking.api.model.dto.CompanyTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Entity
 @Table(name = "companies")
-public class CompanyEntity {
+public class Company {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -29,7 +29,7 @@ public class CompanyEntity {
     @Column(nullable = false)
     private LocalDateTime adhesionDate;
 
-    public Company toDomain() {
-        return new Company(cuit, businessName, adhesionDate);
+    public CompanyTO toDomain() {
+        return new CompanyTO(cuit, businessName, adhesionDate);
     }
 }

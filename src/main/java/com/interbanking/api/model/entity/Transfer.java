@@ -1,4 +1,4 @@
-package com.interbanking.api.infrastructure.persistence.entities;
+package com.interbanking.api.model.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "transfers")
-public class TransferEntity {
+public class Transfer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
