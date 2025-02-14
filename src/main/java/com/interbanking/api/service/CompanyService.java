@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
+
 
 @Service
 public class CompanyService {
@@ -20,12 +20,12 @@ public class CompanyService {
     final TransferRepository transferRepository;
 
     @Autowired
-    public CompanyService(CompanyRepository companyRepository, TransferRepository transferRepository) {
+    public CompanyService(final CompanyRepository companyRepository,final TransferRepository transferRepository) {
         this.companyRepository = companyRepository;
         this.transferRepository = transferRepository;
     }
 
-    public final CompanyTO createCompany(final CompanyTO companyTO) {
+    public CompanyTO createCompany(final CompanyTO companyTO) {
         if(companyRepository.existsByCuit(companyTO.getCuit())) {
             throw new IllegalArgumentException("CUIT already exists");
         }
@@ -45,22 +45,13 @@ public class CompanyService {
     }
 
     public List<CompanyTO> getCompaniesWithTransfersLastMonth() {
-        LocalDateTime now = LocalDateTime.now();
-        LocalDateTime start = now.minusMonths(1).withDayOfMonth(1).withHour(0).withMinute(0);
-        LocalDateTime end = start.plusMonths(1).minusSeconds(1);
+        final LocalDateTime now = LocalDateTime.now();
+        final LocalDateTime start = now.minusMonths(1).withDayOfMonth(1).withHour(0).withMinute(0);
+        final LocalDateTime end = start.plusMonths(1).minusSeconds(1);
 
         final List<Transfer> transfers = transferRepository.findByDateBetween(start, end);
 
-        return transfers.stream()
-                .map(transfer -> getCompanyById(transfer.getCompanyId()))
-                .filter(Optional::isPresent)
-                .map(Optional::get)
-                .map(Company::toDomain)
-                .distinct()
-                .toList();
+        return transfers.stream().map(transfer -> transfer.getCompany().toDomain()).distinct().toList();
     }
 
-    private Optional<Company> getCompanyById(Long companyId) {
-        return companyRepository.findById(companyId);
-    }
 }
