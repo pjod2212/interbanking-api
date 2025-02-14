@@ -23,10 +23,10 @@ public class CompanyController {
     @PostMapping
     @Operation(
             summary = "Crear una nueva compañía",
-            description = "Este endpoint permite crear una nueva compañía, proporcionando los detalles de la misma."
+            description = "Crear compañia"
     )
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "201", description = "Compañía creada exitosamente"),
+            @ApiResponse(responseCode = "201", description = "Compañía creada con exito"),
             @ApiResponse(responseCode = "400", description = "Solicitud incorrecta, datos de entrada inválidos")
     })
     public ResponseEntity<CompanyTO> createCompany(@Valid @RequestBody final CompanyTO request) {
@@ -37,10 +37,10 @@ public class CompanyController {
     @GetMapping("/adhered/last-month")
     @Operation(
             summary = "Obtener compañías adheridas el mes pasado",
-            description = "Este endpoint devuelve una lista de las compañías que se han adherido el mes pasado."
+            description = "Lista compañías que se han adherido el mes pasado."
     )
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Lista de compañías adheridas el mes pasado obtenida exitosamente"),
+            @ApiResponse(responseCode = "200", description = "Compañías adheridas el mes pasado obtenidas exitosamente"),
             @ApiResponse(responseCode = "500", description = "Error interno del servidor")
     })
     public ResponseEntity<List<CompanyTO>> getAdheredLastMonth() {
@@ -50,7 +50,7 @@ public class CompanyController {
     @GetMapping("/transfers/last-month")
     @Operation(
             summary = "Obtener compañías con transferencias el mes pasado",
-            description = "Este endpoint devuelve una lista de compañías que han tenido transferencias el mes pasado."
+            description = "Lista compañías que han tenido transferencias el mes pasado."
     )
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Lista de compañías con transferencias obtenida exitosamente"),
